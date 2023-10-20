@@ -1,12 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import Parent from "./Parent";
+import Parent_Func from "./Parent_Func";
+
 function App() {
-  return (
-    <div className="App">
-      <Parent/>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Parent_Func />
+        </div>
+    );
 }
 
 export default App;
