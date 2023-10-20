@@ -21,6 +21,23 @@ class Login extends Component {
     this.props.callbacksubmit();
     }
 
+    // removeItem =(index)=>{
+    //     //let updatedUsers = [...this.props.users];
+    //     this.props.removeItemParent(index);
+    //
+    //
+    //     //this.props.users=[...updatedUsers]
+    // }
+    removeItem(index)
+    {
+
+        //let updatedUsers = [...this.props.users];
+        this.props.removeItemParent(index);
+
+
+        //this.props.users=[...updatedUsers]
+
+    }
 
     render() {
         return (
@@ -39,6 +56,19 @@ class Login extends Component {
                         <button type="button" onClick={this.handleLogin}>
                             Login
                         </button>
+
+
+                        <h3>Users: </h3>
+                        <ul>
+                            {this.props.users.map((user, index) => (
+                                <li key={index}>
+                                    Name: {user.name}, Email: {user.email}
+                                    <button onClick={()=>this.removeItem(index)}>Delete</button>
+                                </li>
+
+                            ))}
+                        </ul>
+
                     </form>
             </div>
         );

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 class SignUpPage extends Component {
     constructor(props) {
         super(props);
-
     }
 
     handleNameChange = (e) => {
@@ -56,14 +55,7 @@ class SignUpPage extends Component {
                 </form>
 
 
-                <h3>Registered Users:</h3>
-                <ul>
-                    {this.props.users.map((user, index) => (
-                        <li key={index}>
-                            Name: {user.name}, Email: {user.email}
-                        </li>
-                    ))}
-                </ul>
+
             </div>
         );
     }
