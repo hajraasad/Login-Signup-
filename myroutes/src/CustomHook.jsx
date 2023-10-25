@@ -1,6 +1,6 @@
 import useFetch from "./useFetch";
 const CustomHook = () => {
-    const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+    const [data, abc] = useFetch("https://jsonplaceholder.typicode.com/todos");
 
     return (
         <>

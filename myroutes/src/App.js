@@ -7,10 +7,8 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Book from "./pages/Books";
 import Booklist from "./pages/Booklist";
-import Products from "./products/Products";
-import CustomHook from "./CustomHook";
-import Product1 from "./products/Product1";
-import Product2 from "./products/Product2";
+import Protected from "./pages/Protected";
+import Login from "./pages/Login";
 
 export default function App() {
     return (
@@ -19,34 +17,28 @@ export default function App() {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Layout </Link>
-                        <Link to="/home">Home </Link>
-                        <Link to="/blogs">Blogs </Link>
-                        <Link to="/contact">Contacts </Link>
-                        <Link to="/books">booklist</Link>
-                        <Link to="/books/:id">books</Link>
+                        {/*<Link to="/"> Layout </Link>*/}
+                        <Link to="/home"> Home </Link>
+                        <Link to="/blogs"> Blogs </Link>
+                        <Link to="/contact"> Contacts </Link>
+                        <Link to="/login"> Login </Link>
+                        <Link to="/books"> Booklist </Link>
+                        <Link to="/books/:id"> books </Link>
                     </li>
                 </ul>
             </nav>
 
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                    <Route path="/home" element={<Home/>}/>
-                    <Route path="/books" element={<Booklist/>}/>
-                    <Route path="/books/:id" element={<Book/>}/>
-                    <Route path="/blogs" element={<Blogs/>}/>
-                    <Route path="/contact" element={<Contact/>}/>
-                    <Route path="*" element={<NoPage/>}/>
+                    <Route path="/home" element={<Protected component={Home}/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/books" element={<Protected component={Booklist}/>}/>
+                    <Route path="/books/:id" element={<Protected component={Book}/>}/>
+                    <Route path="/blogs" element={<Protected component={Blogs}/>}/>
+                    <Route path="/contact" element={<Protected component={Contact}/>}/>
+                    <Route path="*" element={<Protected component={NoPage}/>}/>
 
                 </Route>
-
-
-
-
-                {/*<Route path="/products/products">*/}
-                {/*    <Route path="/product1" element={<Product1/>}/>*/}
-                {/*    <Route path="/product2" element={<Product2/>}/>*/}
-                {/*    <Route/>*/}
 
 
             </Routes>

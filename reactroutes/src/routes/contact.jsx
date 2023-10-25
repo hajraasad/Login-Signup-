@@ -1,14 +1,16 @@
-import { Form } from "react-router-dom";
-import { window } from 'global';
-export default function Contactss() {
-    const contact = {
-        first: "Your",
-        last: "Name",
-        avatar: "https://placekitten.com/g/200/200",
-        twitter: "your_handle",
-        notes: "Some notes",
-        favorite: true,
-    };
+import { Form, useLoaderData } from "react-router-dom";
+import { getContact } from "../contacts";
+
+export async function loader({ params }) {
+    const contact = await getContact(params.contactId);
+    return { contact };
+}
+
+export default function Contact() {
+    const {contact} = useLoaderData();
+    // existing code
+
+
 
     return (
         <div id="contact">
@@ -53,9 +55,9 @@ export default function Contactss() {
                         action="destroy"
                         onSubmit={(event) => {
                             if (
-                                confirm(
-                                    "Please confirm you want to delete this record."
-                                )
+                                // eslint-disable-next-line no-restricted-globals
+                                confirm("Are you sure you want to continue?")
+
                             ) {
                                 event.preventDefault();
                             }

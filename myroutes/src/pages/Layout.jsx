@@ -4,7 +4,7 @@ function Layout() {
 
     return (
         <div>
-           Layout component
+            Hello from layout
             <Outlet/>
 
         </div>
